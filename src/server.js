@@ -1,6 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const databaseConfig = require("./config/database");
+const seeds = require("./app/seeds");
+const rulesSeed = require("./app/seeds/Rules");
+
 class App {
 	constructor() {
 		this.express = express();
@@ -9,20 +12,29 @@ class App {
 		this.database();
 		this.middlewares();
 		this.routes();
+		this.seeds();
 	}
 
 	database() {
 		mongoose.connect(databaseConfig.uri, {
 			useCreateIndex: true,
 			useNewUrlParser: true,
-			useUnifiedTopology: true
+			useUnifiedTopology: true,
+			useFindAndModify: false
 		});
 	}
+
 	middlewares() {
 		this.express.use(express.json());
 	}
+
 	routes() {
 		this.express.use(require("./routes"));
+	}
+
+	seeds() {
+		seeds.Rules;
+		rulesSeed;
 	}
 }
 
