@@ -2,9 +2,11 @@ const Phone = require("../models/Phone");
 
 class PhoneController {
 	async store(req, res) {
-		const phone = await Phone.create(req.body);
+		return res.json(await this.create(req.body));
+	}
 
-		return res.json(phone);
+	async create(data) {
+		return await Phone.create(data);
 	}
 }
 

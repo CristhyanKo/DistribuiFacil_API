@@ -1,6 +1,5 @@
 const User = require("../models/User");
-const Phone = require("../models/Phone");
-const Address = require("../models/Address");
+const PersonController = require("../controllers/PersonController");
 
 class UserController {
 	async store(req, res) {
@@ -10,14 +9,8 @@ class UserController {
 			return res.status(400).json({ error: "User already exists" });
 		}
 
-		const { _id: idAddress } = await Address.create(req.body.address);
-		const { _id: idPhone } = await Phone.create(req.body.phone);
-
-		const user = await User.create({
-			...req.body,
-			addresses: [idAddress],
-			phones: [idPhone]
-		});
+		const person = await PersonController.create(req.body.person);
+		const user = await User.create({ ...req.body, personId: person._id });
 
 		return res.json(user);
 	}

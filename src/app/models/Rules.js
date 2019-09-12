@@ -10,7 +10,7 @@ const Rules = new mongoose.Schema({
 		type: String,
 		default: "User",
 		unique: true,
-		lowercase: true
+		uppercase: true
 	},
 	createdAt: {
 		type: Date,

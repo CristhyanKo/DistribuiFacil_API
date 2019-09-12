@@ -16,11 +16,14 @@ const User = new mongoose.Schema({
 		ref: "Person",
 		required: true
 	},
-	rules: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: "Rules",
+	ruleCode: {
+		type: Number,
+		ref: "Rules.code",
 		required: true,
-		default: 1
+		default: 3
+		// 1 - Administrador
+		// 2 - Funcionario
+		// 3 - Cliente
 	},
 	createdAt: {
 		type: Date,
