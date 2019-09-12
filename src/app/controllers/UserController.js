@@ -9,10 +9,12 @@ class UserController {
 			return res.status(400).json({ error: "User already exists" });
 		}
 
-		const person = await PersonController.create(req.body.person);
-		const user = await User.create({ ...req.body, personId: person._id });
+		return res.json(await this.create(req.body));
+	}
 
-		return res.json(user);
+	async create(data) {
+		const person = await PersonController.create(data.person);
+		return await User.create({ ...data, personId: person._id });
 	}
 }
 

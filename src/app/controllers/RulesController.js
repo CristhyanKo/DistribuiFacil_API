@@ -6,9 +6,12 @@ class RulesController {
 		if (await Rules.findOne({ description })) {
 			return res.status(400).json({ error: "Rules already exists" });
 		}
-		const rules = await Rules.create(req.body);
 
-		return res.json(rules);
+		return res.json(await this.create(req.body));
+	}
+
+	async create(data) {
+		return await Rules.create(data);
 	}
 }
 
