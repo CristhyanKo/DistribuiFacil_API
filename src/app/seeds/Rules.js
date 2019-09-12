@@ -1,4 +1,4 @@
-const Rules = require("../models/Rules");
+const Rules = require("../models/Rule");
 
 const rules = [
 	{
