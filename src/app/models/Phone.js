@@ -13,6 +13,11 @@ const Phone = new mongoose.Schema({
 		type: Boolean,
 		default: true
 	},
+	personId: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "person",
+		required: true
+	},
 	createdAt: {
 		type: Date,
 		default: Date.now

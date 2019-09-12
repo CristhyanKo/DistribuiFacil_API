@@ -35,7 +35,7 @@ const Address = new mongoose.Schema({
 	},
 	personId: {
 		type: mongoose.Schema.Types.ObjectId,
-		ref: "Person",
+		ref: "person",
 		required: true
 	},
 	createdAt: {

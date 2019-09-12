@@ -14,20 +14,6 @@ const Person = new mongoose.Schema({
 		type: Date,
 		required: true
 	},
-	addresses: [
-		{
-			type: mongoose.Schema.Types.ObjectId,
-			ref: "address",
-			required: true
-		}
-	],
-	phones: [
-		{
-			type: mongoose.Schema.Types.ObjectId,
-			ref: "phone",
-			required: true
-		}
-	],
 	createdAt: {
 		type: Date,
 		default: Date.now
