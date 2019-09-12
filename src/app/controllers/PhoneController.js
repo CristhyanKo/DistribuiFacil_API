@@ -1,6 +1,11 @@
 const Phone = require("../models/Phone");
+const BaseController = require("./BaseController");
 
-class PhoneController {
+class PhoneController extends BaseController {
+	constructor(model) {
+		super(model);
+	}
+
 	async store(req, res) {
 		const { personId, main } = req.body;
 		if (await Phone.findOne({ personId, main })) {
@@ -11,10 +16,6 @@ class PhoneController {
 
 		return res.json(await this.create(req.body));
 	}
-
-	async create(data) {
-		return await Phone.create(data);
-	}
 }
 
-module.exports = new PhoneController();
+module.exports = new PhoneController(Phone);

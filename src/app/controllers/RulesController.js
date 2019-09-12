@@ -1,6 +1,10 @@
 const Rules = require("../models/Rules");
+const BaseController = require("./BaseController");
 
-class RulesController {
+class RulesController extends BaseController {
+	constructor(model) {
+		super(model);
+	}
 	async store(req, res) {
 		const { description } = req.body;
 		if (await Rules.findOne({ description })) {
@@ -9,10 +13,6 @@ class RulesController {
 
 		return res.json(await this.create(req.body));
 	}
-
-	async create(data) {
-		return await Rules.create(data);
-	}
 }
 
-module.exports = new RulesController();
+module.exports = new RulesController(Rules);

@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const databaseConfig = require("./config/database");
 const seeds = require("./app/seeds");
-const rulesSeed = require("./app/seeds/Rules");
 
 class App {
 	constructor() {
@@ -34,7 +33,6 @@ class App {
 
 	seeds() {
 		seeds.Rules;
-		rulesSeed;
 	}
 }
 

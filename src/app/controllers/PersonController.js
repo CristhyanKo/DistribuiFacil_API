@@ -14,7 +14,6 @@ class PersonController {
 	}
 
 	async create(data) {
-		console.log(data);
 		const { address, phone } = data;
 
 		const person = await Person.create(data);
