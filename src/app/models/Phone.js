@@ -15,7 +15,7 @@ const Phone = new mongoose.Schema({
 	},
 	personId: {
 		type: mongoose.Schema.Types.ObjectId,
-		ref: "person",
+		ref: "Person",
 		required: true
 	},
 	createdAt: {
