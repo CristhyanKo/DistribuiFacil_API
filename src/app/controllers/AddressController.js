@@ -1,5 +1,5 @@
 const Address = require("../models/Address");
-const BaseController = require("./BaseController");
+const BaseController = require("./Base/BaseController");
 
 class AddressController extends BaseController {
 	constructor(model) {
