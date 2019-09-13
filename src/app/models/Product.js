@@ -15,6 +15,10 @@ const Product = new mongoose.Schema({
 	},
 	expirationDate: {
 		type: Date
+	},
+	createdAt: {
+		type: Date,
+		default: Date.now
 	}
 });
 
