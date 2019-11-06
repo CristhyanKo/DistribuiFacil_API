@@ -19,7 +19,7 @@
 	"homepage": "https://github.com/CristhyanKo/DistribuiFacil_API#readme",
 	"dependencies": {
 		"express": "^4.17.1",
-		"mongoose": "^5.7.0",
+		"mongoose": "^5.7.5",
 		"require-dir": "^1.2.0"
 	},
 	"devDependencies": {
